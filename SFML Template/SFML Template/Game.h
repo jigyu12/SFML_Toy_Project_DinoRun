@@ -13,8 +13,8 @@ public:
 	int GetWindowHeight() const { return windowHeight; }
 
 private:
-	void Update();
-	void Render();
+	void Update(float dt);
+	void Render(sf::RenderWindow& window);
 
 	sf::RenderWindow window;
 	sf::Clock clock;
