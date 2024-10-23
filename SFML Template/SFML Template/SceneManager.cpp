@@ -11,11 +11,6 @@ void SceneManager::Init()
 	scenes.push_back(new MainTitleScene());
 	scenes.push_back(new GameScene());
 
-	for (auto scene : scenes)
-	{
-		scene->Init();
-	}
-
 	currentScene = startScene;
 	scenes[(int)currentScene]->Init();
 }

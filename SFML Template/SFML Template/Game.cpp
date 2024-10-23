@@ -32,7 +32,7 @@ void Game::Do()
         }
 
         window.clear(sf::Color(255,255,255));
-
+        
         Update(GET_SINGLETON(GameManager).GetDeltaTime());
         Render(window);
 

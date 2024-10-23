@@ -14,7 +14,7 @@ void SpriteGameObject::Init()
 
 void SpriteGameObject::Update(float dt)
 {
-
+	sprite.setPosition({sprite.getPosition().x + (speed.x * dt), sprite.getPosition().y + (speed.y * dt) });
 }
 
 void SpriteGameObject::Render(sf::RenderWindow& window)
@@ -31,6 +31,7 @@ void SpriteGameObject::SetOrigin(Origins preset)
 {
 	originPreset = preset;
 	origin = Utils::SetOrigin(sprite, originPreset);
+	sprite.setOrigin(origin);
 }
 
 void SpriteGameObject::SetOrigin(const sf::Vector2f& newOrigin)
@@ -43,4 +44,5 @@ void SpriteGameObject::SetOrigin(const sf::Vector2f& newOrigin)
 void SpriteGameObject::SetPosition(const sf::Vector2f& pos)
 {
 	sprite.setPosition(pos);
+	position = sprite.getPosition();
 }

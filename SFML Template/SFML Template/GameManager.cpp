@@ -6,7 +6,7 @@ void GameManager::Init()
 	deltaTime = 0.f;
 	realTime = 0.f;
 	realDeltaTime = 0.f;
-	timeScale = 0.f;
+	timeScale = 1.f;
 
 	score = 0;
 }
@@ -26,7 +26,7 @@ void GameManager::Release()
 
 }
 
-void GameManager::CalculateTime(const sf::Time& dt)
+void GameManager::CalculateTime(sf::Time& dt)
 {
     realDeltaTime = deltaTime = dt.asSeconds();
     deltaTime *= timeScale;

@@ -10,7 +10,7 @@ public:
 	void Render();
 	void Release();
 
-	void CalculateTime(const sf::Time& dt);
+	void CalculateTime(sf::Time& dt);
 	float GetTime() const { return time; }
 	float GetDeltaTime() const { return deltaTime; }
 	float GetRealTime() const { return realTime; }

@@ -8,9 +8,9 @@ public:
 	virtual void Render(sf::RenderWindow& window) = 0;
 	virtual void Release() = 0;
 
+	virtual void SetPosition(const sf::Vector2f& pos) = 0;
 	virtual void SetOrigin(Origins preset) = 0;
 	virtual void SetOrigin(const sf::Vector2f& newOrigin) = 0;
-	virtual void SetPosition(const sf::Vector2f& pos) = 0;
 
 	GameObject(const std::string& name);
 	virtual ~GameObject() = default;
@@ -19,10 +19,12 @@ public:
 	const std::string& GetName() const { return name; }
 	sf::Vector2f GetPosition() const { return position; }
 	sf::Vector2f GetOrigin() const { return origin; }
+	sf::Vector2f GetSpeed() const { return speed; }
 	Origins GetOriginPreset() const { return originPreset; }
 
 	void SetName(const std::string& n) { name = n; }
 	void SetActive(const bool a) { active = a; }
+	void SetSpeed(const sf::Vector2f s) { speed = s; }
 
 protected:
 	bool active;
@@ -31,6 +33,7 @@ protected:
 
 	sf::Vector2f position;
 	sf::Vector2f origin;
+	sf::Vector2f speed;
 
 	Origins originPreset;
 };
