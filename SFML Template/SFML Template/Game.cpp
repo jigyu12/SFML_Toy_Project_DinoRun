@@ -10,6 +10,7 @@ void Game::Init(const int width, const int height, const std::string& name)
     GET_SINGLETON(GameManager).Init();
     GET_SINGLETON(InputManager).Init();
     TEX_MANAGER.Init();
+    GET_SINGLETON(SceneManager).Init();
 }
 
 void Game::Do()
@@ -32,24 +33,26 @@ void Game::Do()
 
         window.clear(sf::Color(255,255,255));
 
-        Update();
-        Render();
+        Update(GET_SINGLETON(GameManager).GetDeltaTime());
+        Render(window);
 
         window.display();
     }
 }
 
-void Game::Update()
+void Game::Update(float dt)
 {
     GET_SINGLETON(GameManager).Update();
     TEX_MANAGER.Update();
+    GET_SINGLETON(SceneManager).Update(dt);
 }
 
-void Game::Render()
+void Game::Render(sf::RenderWindow& window)
 {
     GET_SINGLETON(GameManager).Render();
     GET_SINGLETON(InputManager).Render();
     TEX_MANAGER.Render();
+    GET_SINGLETON(SceneManager).Render(window);
 }
 
 void Game::Release()
@@ -57,4 +60,5 @@ void Game::Release()
     GET_SINGLETON(GameManager).Release();
     GET_SINGLETON(InputManager).Release();
     TEX_MANAGER.Release();
+    GET_SINGLETON(SceneManager).Release();
 }
