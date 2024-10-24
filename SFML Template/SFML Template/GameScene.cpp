@@ -66,7 +66,7 @@ void GameScene::Init()
 	cactus4->SetSpeed({ -500.f,0.f });
 	
 	FONT_MANAGER.Load("font", "Fonts/KOMIKAP_.ttf");
-	GameObject* gameOver = AddGameObject(new TextGameObject("font", "       GAME OVER!!!\n\nPress Space to MainTitle", "gameOver", sf::Color::Transparent));
+	GameObject* gameOver = AddGameObject(new TextGameObject("font", "       GAME OVER!!!\n\nPress Enter to MainTitle", "gameOver", sf::Color::Transparent));
 	gameOver->SetPosition({ GET_SINGLETON(Game).GetWindowWidth() / 2, (GET_SINGLETON(Game).GetWindowHeight() / 2 - 150) });
 	gameOver->SetOrigin(Origins::MC);
 
@@ -105,7 +105,7 @@ void GameScene::Update(float dt)
 
 	if (!GET_SINGLETON(GameManager).IsLive())
 	{
-		if (GET_SINGLETON(InputManager).GetKeyDown(sf::Keyboard::Space))
+		if (GET_SINGLETON(InputManager).GetKeyDown(sf::Keyboard::Enter))
 		{
 			GET_SINGLETON(SceneManager).ChangeScene(SceneIds::MainTitleScene);
 		}
