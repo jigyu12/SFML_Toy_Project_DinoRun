@@ -18,6 +18,18 @@
     <Filter Include="소스 파일\01. Managers">
       <UniqueIdentifier>{76d6ebe0-8a26-4f84-9c07-7d305cab0f73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. GameObjects">
+      <UniqueIdentifier>{561f069a-d870-4448-9b3d-1bf0ce17c203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects\GameObject">
+      <UniqueIdentifier>{61e4a58e-52b7-47c7-aced-470a858757d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scenes">
+      <UniqueIdentifier>{56e18f37-2c32-4db5-b71c-a2b004392f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scenes\Scene">
+      <UniqueIdentifier>{eb0733af-055e-472c-b8b0-4d4f2c8d56ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
@@ -35,6 +47,30 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>소스 파일\01. Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>소스 파일\02. GameObjects\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\03. Scenes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>소스 파일\03. Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainTitleScene.cpp">
+      <Filter>소스 파일\03. Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="TextGameObject.cpp">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteGameObject.cpp">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -51,6 +87,36 @@
     </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>소스 파일\02. GameObjects\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\03. Scenes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>소스 파일\03. Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TextGameObject.h">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGameObject.h">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTitleScene.h">
+      <Filter>소스 파일\03. Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

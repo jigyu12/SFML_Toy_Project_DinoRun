@@ -6,23 +6,24 @@ void SceneManager::Init()
 {
 	Release();
 
-	startScene = SceneIds::MainTitleScene;
+	startSceneId = SceneIds::MainTitleScene;
 
 	scenes.push_back(new MainTitleScene());
 	scenes.push_back(new GameScene());
 
-	currentScene = startScene;
-	scenes[(int)currentScene]->Init();
+	currentSceneId = startSceneId;
+	currentScene = scenes[(int)currentSceneId];
+	scenes[(int)currentSceneId]->Init();
 }
 
 void SceneManager::Update(float dt)
 {
-	scenes[(int)currentScene]->Update(dt);
+	scenes[(int)currentSceneId]->Update(dt);
 }
 
 void SceneManager::Render(sf::RenderWindow& window)
 {
-	scenes[(int)currentScene]->Render(window);
+	scenes[(int)currentSceneId]->Render(window);
 }
 
 void SceneManager::Release()
@@ -37,7 +38,8 @@ void SceneManager::Release()
 
 void SceneManager::ChangeScene(SceneIds id)
 {
-	scenes[(int)currentScene]->Release();
-	currentScene = id;
-	scenes[(int)currentScene]->Init();
+	scenes[(int)currentSceneId]->Release();
+	currentSceneId = id;
+	currentScene = scenes[(int)currentSceneId];
+	scenes[(int)currentSceneId]->Init();
 }
