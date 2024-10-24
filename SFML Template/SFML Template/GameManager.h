@@ -21,6 +21,7 @@ public:
 
 	void SetTimeScale(const float newTimeScale) { timeScale = newTimeScale; }
 	void SetScore(const float amount) { score += amount; }
+	void SetLive(const bool isLive) { this->isLive = isLive; }
 	
 	bool IsLive() { return isLive; }
 	bool IsSpriteCollision(GameObject* obj1, GameObject* obj2);

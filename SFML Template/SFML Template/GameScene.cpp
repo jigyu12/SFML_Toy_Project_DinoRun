@@ -59,7 +59,7 @@ void GameScene::Init()
 	cactus3->SetSpeed({ -400.f,0.f });
 	
 	FONT_MANAGER.Load("font", "Fonts/KOMIKAP_.ttf");
-	GameObject* gameOver = AddGameObject(new TextGameObject("font", "GAME OVER!!!", "gameOver", sf::Color::Transparent));
+	GameObject* gameOver = AddGameObject(new TextGameObject("font", "       GAME OVER!!!\n\nPress Space to MainTitle", "gameOver", sf::Color::Transparent));
 	gameOver->SetPosition({ GET_SINGLETON(Game).GetWindowWidth() / 2, (GET_SINGLETON(Game).GetWindowHeight() / 2 - 150) });
 	gameOver->SetOrigin(Origins::MC);
 
@@ -76,9 +76,17 @@ void GameScene::Update(float dt)
 {
 	Scene::Update(dt);
 
-	if (GET_SINGLETON(InputManager).GetKeyDown(sf::Keyboard::Space))
+	if (GET_SINGLETON(GameManager).IsSpriteCollision(FindGameObjectSingle("player"), FindGameObjectSingle("cactus1")))
 	{
-		GET_SINGLETON(SceneManager).ChangeScene(SceneIds::MainTitleScene);
+		GET_SINGLETON(GameManager).SetLive(false);
+	}
+
+	if (!GET_SINGLETON(GameManager).IsLive())
+	{
+		if (GET_SINGLETON(InputManager).GetKeyDown(sf::Keyboard::Space))
+		{
+			GET_SINGLETON(SceneManager).ChangeScene(SceneIds::MainTitleScene);
+		}
 	}
 }
 
@@ -94,5 +102,10 @@ void GameScene::Release()
 	TEX_MANAGER.Unload("cloud1");
 	TEX_MANAGER.Unload("cloud2");
 	TEX_MANAGER.Unload("player"); 
-
+	TEX_MANAGER.Unload("ground1"); 
+	TEX_MANAGER.Unload("ground2"); 
+	TEX_MANAGER.Unload("cactus1"); 
+	TEX_MANAGER.Unload("cactus2"); 
+	TEX_MANAGER.Unload("cactus3"); 
+	FONT_MANAGER.Unload("font");
 }

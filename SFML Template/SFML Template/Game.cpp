@@ -33,8 +33,9 @@ void Game::Do()
 
         window.clear(sf::Color(255,255,255));
 
-        if(GET_SINGLETON(GameManager).IsLive())
-            Update(GET_SINGLETON(GameManager).GetDeltaTime());
+        /*if(GET_SINGLETON(GameManager).IsLive())
+            Update(GET_SINGLETON(GameManager).GetDeltaTime());*/
+        Update(GET_SINGLETON(GameManager).GetDeltaTime());
 
         Render(window);
 

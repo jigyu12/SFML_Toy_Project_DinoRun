@@ -17,7 +17,15 @@ void TextGameObject::Init()
 
 void TextGameObject::Update(float dt)
 {
-	text.setPosition({ text.getPosition().x + (speed.x * dt), text.getPosition().y + (speed.y * dt) });
+	if (!GET_SINGLETON(GameManager).IsLive())
+	{
+		if (name == "gameOver")
+		{
+			SetColor(sf::Color::Red);
+		}
+	}
+	
+	SetPosition({ text.getPosition().x + (speed.x * dt), text.getPosition().y + (speed.y * dt) });
 }
 
 void TextGameObject::Render(sf::RenderWindow& window)

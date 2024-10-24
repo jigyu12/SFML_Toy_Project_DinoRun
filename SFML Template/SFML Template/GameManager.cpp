@@ -44,7 +44,7 @@ bool GameManager::IsSpriteCollision(GameObject* obj1, GameObject* obj2)
 
 	float originDistance = sqrt(pow(player->GetPosition().x - cactus->GetPosition().x, 2) + pow(player->GetPosition().y - cactus->GetPosition().y, 2));
 
-	if (originDistance < 160.f)
+	if (originDistance < 60.f)
 	{
 		return true;
 	}
