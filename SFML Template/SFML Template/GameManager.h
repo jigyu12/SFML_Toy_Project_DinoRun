@@ -18,6 +18,7 @@ public:
 	float GetRealDeltaTime() const { return realDeltaTime; }
 	float GetTimeScale() const { return timeScale; }
 	float GetScore() const { return score; }
+	float GetGravity() const { return gravity; }
 
 	void SetTimeScale(const float newTimeScale) { timeScale = newTimeScale; }
 	void SetScore(const float amount) { score += amount; }
@@ -36,4 +37,6 @@ private:
 	float score;
 
 	bool isLive;
+
+	const float gravity = 98.f;
 };

@@ -31,7 +31,7 @@ void Game::Do()
             GET_SINGLETON(InputManager).Update(event);
         }
 
-        window.clear(sf::Color(255,255,255));
+        window.clear(sf::Color(128,128,128));
 
         /*if(GET_SINGLETON(GameManager).IsLive())
             Update(GET_SINGLETON(GameManager).GetDeltaTime());*/

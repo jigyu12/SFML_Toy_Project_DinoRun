@@ -10,12 +10,21 @@ void SpriteGameObject::Init()
 {
 	sprite.setTexture(TEX_MANAGER.Get(textureId));
 	SetOrigin(originPreset);
+	isJump = false;
 }
 
 void SpriteGameObject::Update(float dt)
 {
 	if (GET_SINGLETON(GameManager).IsLive())
 	{
+		if (name == "player" && !isJump && GET_SINGLETON(InputManager).GetKeyDown(sf::Keyboard::Enter))
+		{
+			isJump = true;
+			velocityY = -400.f;
+			Jump(dt);
+
+			return;
+		}
 		if (name == "ground1")
 		{
 			if (sprite.getPosition().x < -2100)
@@ -98,6 +107,19 @@ void SpriteGameObject::SetPosition(const sf::Vector2f& pos)
 {
 	sprite.setPosition(pos);
 	position = sprite.getPosition();
+}
+
+void SpriteGameObject::Jump(float dt)
+{
+		velocityY += GET_SINGLETON(GameManager).GetGravity() * dt;
+		SetPosition({ sprite.getPosition().x, sprite.getPosition().y + (velocityY * dt) });
+
+		if (sprite.getPosition().y > GET_SINGLETON(Game).GetWindowHeight() / 2 + 180)
+		{
+			isJump = false;
+			velocityY = 0.0f;
+			SetPosition({ sprite.getPosition().x, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+		}
 }
 
 sf::FloatRect SpriteGameObject::GetLocalBounds() const
