@@ -10,7 +10,6 @@ MainTitleScene::MainTitleScene()
 
 void MainTitleScene::Init()
 {
-	GET_SINGLETON(GameManager).SetLive(true);
 	GET_SINGLETON(GameManager).SetScore(-GET_SINGLETON(GameManager).GetScore());
 
 	FONT_MANAGER.Load("font", "Fonts/KOMIKAP_.ttf");

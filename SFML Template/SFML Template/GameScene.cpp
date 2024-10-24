@@ -10,6 +10,8 @@ GameScene::GameScene()
 
 void GameScene::Init()
 {
+	GET_SINGLETON(GameManager).SetLive(true);
+
 	TEX_MANAGER.Load("cloud1", "Resource/cloud.png");
 	GameObject* cloud1 = AddGameObject(new SpriteGameObject("cloud1", "cloud1"));
 	cloud1->SetOrigin(Origins::MC);

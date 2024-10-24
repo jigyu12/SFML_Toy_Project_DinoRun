@@ -11,12 +11,13 @@ void GameManager::Init()
 
 	score = 0;
 
-	isLive = true;
+	isLive = false;
 }
 
 void GameManager::Update()
 {
-	score += 40 * deltaTime;
+	if(isLive)
+		score += 40 * deltaTime;
 }
 
 void GameManager::Render()

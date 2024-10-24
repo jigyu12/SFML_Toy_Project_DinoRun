@@ -24,6 +24,15 @@ void TextGameObject::Update(float dt)
 			SetColor(sf::Color::Red);
 		}
 	}
+
+	if (name == "score" && GET_SINGLETON(GameManager).IsLive())
+	{
+		std::string fTemp = std::to_string(GET_SINGLETON(GameManager).GetScore());
+		std::string f = fTemp.substr(0, fTemp.find('.') + 2);
+		std::string temp = "SCORE: " + f;
+
+		text.setString(temp);
+	}
 	
 	SetPosition({ text.getPosition().x + (speed.x * dt), text.getPosition().y + (speed.y * dt) });
 }
