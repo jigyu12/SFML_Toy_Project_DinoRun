@@ -15,6 +15,8 @@ public:
 	void SetOrigin(const sf::Vector2f& newOrigin) override;
 	void SetPosition(const sf::Vector2f& pos) override;
 
+	sf::FloatRect GetLocalBounds()  const;
+
 protected:
 	sf::Sprite sprite;
 	std::string textureId;

@@ -73,7 +73,7 @@ void SpriteGameObject::Render(sf::RenderWindow& window)
 
 void SpriteGameObject::Release()
 {
-
+	
 }
 
 void SpriteGameObject::SetOrigin(Origins preset)
@@ -94,4 +94,9 @@ void SpriteGameObject::SetPosition(const sf::Vector2f& pos)
 {
 	sprite.setPosition(pos);
 	position = sprite.getPosition();
+}
+
+sf::FloatRect SpriteGameObject::GetLocalBounds() const
+{
+	return sprite.getLocalBounds();
 }

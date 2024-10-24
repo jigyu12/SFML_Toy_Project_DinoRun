@@ -10,12 +10,15 @@ public:
 	void Render(sf::RenderWindow& window);
 	void Release();
 
-	SceneIds GetCurrentScene() const { return currentScene; }
+	SceneIds GetCurrentSceneId() const { return currentSceneId; }
+	Scene* GetCurrentScene() const { return currentScene; }
 	void ChangeScene(SceneIds id);
 
 private:
 	std::vector<Scene*> scenes;
 
-	SceneIds startScene;
-	SceneIds currentScene;
+	SceneIds startSceneId;
+	SceneIds currentSceneId;
+
+	Scene* currentScene;
 };

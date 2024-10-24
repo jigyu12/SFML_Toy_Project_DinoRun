@@ -11,6 +11,7 @@ public:
 	void Release();
 
 	void CalculateTime(sf::Time& dt);
+
 	float GetTime() const { return time; }
 	float GetDeltaTime() const { return deltaTime; }
 	float GetRealTime() const { return realTime; }
@@ -21,6 +22,8 @@ public:
 	void SetTimeScale(const float newTimeScale) { timeScale = newTimeScale; }
 	void SetScore(const float amount) { score += amount; }
 	
+	bool IsLive() { return isLive; }
+	bool IsSpriteCollision(GameObject* obj1, GameObject* obj2);
 
 private:
 	float time;
@@ -30,4 +33,6 @@ private:
 	float timeScale;
 
 	float score;
+
+	bool isLive;
 };
