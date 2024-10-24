@@ -17,11 +17,22 @@ void SpriteGameObject::Update(float dt)
 {
 	if (GET_SINGLETON(GameManager).IsLive())
 	{
-		if (name == "player" && !isJump && GET_SINGLETON(InputManager).GetKeyDown(sf::Keyboard::Enter))
+		if (name == "player" && GET_SINGLETON(InputManager).GetKeyDown(sf::Keyboard::Space))
 		{
-			isJump = true;
-			velocityY = -400.f;
 			Jump(dt);
+		}
+		if (name == "player" && isJump)
+		{
+			velocityY += gravity * dt;
+
+			SetPosition({ sprite.getPosition().x, sprite.getPosition().y + (velocityY * dt) });
+
+			if (sprite.getPosition().y >= GET_SINGLETON(Game).GetWindowHeight() / 2 + 180) 
+			{
+				sprite.setPosition(sprite.getPosition().x, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180);
+				isJump = false;
+				velocityY = 0.0f;
+			}
 
 			return;
 		}
@@ -111,15 +122,11 @@ void SpriteGameObject::SetPosition(const sf::Vector2f& pos)
 
 void SpriteGameObject::Jump(float dt)
 {
-		velocityY += GET_SINGLETON(GameManager).GetGravity() * dt;
-		SetPosition({ sprite.getPosition().x, sprite.getPosition().y + (velocityY * dt) });
-
-		if (sprite.getPosition().y > GET_SINGLETON(Game).GetWindowHeight() / 2 + 180)
-		{
-			isJump = false;
-			velocityY = 0.0f;
-			SetPosition({ sprite.getPosition().x, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
-		}
+	if (!isJump) 
+	{
+		isJump = true;
+		velocityY = -500.f;
+	}
 }
 
 sf::FloatRect SpriteGameObject::GetLocalBounds() const

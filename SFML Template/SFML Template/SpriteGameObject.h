@@ -25,4 +25,5 @@ protected:
 
 	bool isJump;
 	float velocityY = 0.0f;
+	const float gravity = 980.f;
 };
