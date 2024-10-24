@@ -17,6 +17,14 @@ void TextGameObject::Init()
 
 void TextGameObject::Update(float dt)
 {
+	if (name == "score")
+	{
+		std::string fTemp = std::to_string(GET_SINGLETON(GameManager).GetScore());
+		std::string f = fTemp.substr(0, fTemp.find('.') + 2);
+		std::string temp = "SCORE: " + f;
+
+		text.setString(temp);
+	}
 	text.setPosition({ text.getPosition().x + (speed.x * dt), text.getPosition().y + (speed.y * dt) });
 }
 
