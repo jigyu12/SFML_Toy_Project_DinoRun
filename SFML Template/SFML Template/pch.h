@@ -6,6 +6,8 @@
 #include <vector>
 #include <unordered_map>
 #include <cmath>
+#include <stdlib.h>
+#include <time.h>
 
 #include <SFML/Graphics.hpp>
 

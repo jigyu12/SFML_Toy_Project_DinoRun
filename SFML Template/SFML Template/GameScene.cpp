@@ -34,31 +34,36 @@ void GameScene::Init()
 	GameObject* ground1 = AddGameObject(new SpriteGameObject("ground1", "ground1"));
 	ground1->SetOrigin(Origins::TL);
 	ground1->SetPosition({ 0, GET_SINGLETON(Game).GetWindowHeight() / 2 + 200 });
-	ground1->SetSpeed({ -400.f,0.f });
+	ground1->SetSpeed({ -500.f,0.f });
 
 	TEX_MANAGER.Load("ground2", "Resource/ground.png");
 	GameObject* ground2 = AddGameObject(new SpriteGameObject("ground2", "ground2"));
 	ground2->SetOrigin(Origins::TL);
 	ground2->SetPosition({ 2100, GET_SINGLETON(Game).GetWindowHeight() / 2 + 200});
-	ground2->SetSpeed({ -400.f,0.f });
+	ground2->SetSpeed({ -500.f,0.f });
 
 	TEX_MANAGER.Load("cactus1", "Resource/cactus1.png");
 	GameObject* cactus1 = AddGameObject(new SpriteGameObject("cactus1", "cactus1"));
 	cactus1->SetOrigin(Origins::MC);
 	cactus1->SetPosition({ 1800, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
-	cactus1->SetSpeed({ -400.f,0.f });
+	cactus1->SetSpeed({ -500.f,0.f });
 
 	TEX_MANAGER.Load("cactus2", "Resource/cactus2.png");
 	GameObject* cactus2 = AddGameObject(new SpriteGameObject("cactus2", "cactus2"));
 	cactus2->SetOrigin(Origins::MC);
-	cactus2->SetPosition({ 2200, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
-	cactus2->SetSpeed({ -400.f,0.f });
+	cactus2->SetPosition({ 2400, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+	cactus2->SetSpeed({ -500.f,0.f });
 
 	TEX_MANAGER.Load("cactus3", "Resource/cactus3.png");
 	GameObject* cactus3 = AddGameObject(new SpriteGameObject("cactus3", "cactus3"));
 	cactus3->SetOrigin(Origins::MC);
-	cactus3->SetPosition({ 2600, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
-	cactus3->SetSpeed({ -400.f,0.f });
+	cactus3->SetPosition({ 3000, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+	cactus3->SetSpeed({ -500.f,0.f });
+
+	GameObject* cactus4 = AddGameObject(new SpriteGameObject("cactus1", "cactus4"));
+	cactus4->SetOrigin(Origins::MC);
+	cactus4->SetPosition({ 3400, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+	cactus4->SetSpeed({ -500.f,0.f });
 	
 	FONT_MANAGER.Load("font", "Fonts/KOMIKAP_.ttf");
 	GameObject* gameOver = AddGameObject(new TextGameObject("font", "       GAME OVER!!!\n\nPress Space to MainTitle", "gameOver", sf::Color::Transparent));
@@ -79,6 +84,21 @@ void GameScene::Update(float dt)
 	Scene::Update(dt);
 
 	if (GET_SINGLETON(GameManager).IsSpriteCollision(FindGameObjectSingle("player"), FindGameObjectSingle("cactus1")))
+	{
+		GET_SINGLETON(GameManager).SetLive(false);
+	}
+
+	if (GET_SINGLETON(GameManager).IsSpriteCollision(FindGameObjectSingle("player"), FindGameObjectSingle("cactus2")))
+	{
+		GET_SINGLETON(GameManager).SetLive(false);
+	}
+
+	if (GET_SINGLETON(GameManager).IsSpriteCollision(FindGameObjectSingle("player"), FindGameObjectSingle("cactus3")))
+	{
+		GET_SINGLETON(GameManager).SetLive(false);
+	}
+
+	if (GET_SINGLETON(GameManager).IsSpriteCollision(FindGameObjectSingle("player"), FindGameObjectSingle("cactus4")))
 	{
 		GET_SINGLETON(GameManager).SetLive(false);
 	}
