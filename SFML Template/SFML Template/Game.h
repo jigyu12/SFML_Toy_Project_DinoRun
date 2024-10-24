@@ -9,8 +9,8 @@ public:
 	void Do();
 	void Release();
 
-	int GetWindowWidth() const { return windowWidth; }
-	int GetWindowHeight() const { return windowHeight; }
+	float GetWindowWidth() const { return (float)windowWidth; }
+	float GetWindowHeight() const { return (float)windowHeight; }
 
 private:
 	void Update(float dt);
