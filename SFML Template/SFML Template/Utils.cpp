@@ -27,3 +27,8 @@ sf::Vector2f Utils::SetOrigin(sf::Text& obj, Origins preset)
 
     return newOrigin;
 }
+
+int Utils::GetRandNum_C(int mod)
+{
+    return rand() % mod;
+}

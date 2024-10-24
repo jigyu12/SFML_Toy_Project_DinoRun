@@ -68,24 +68,31 @@ void SpriteGameObject::Update(float dt)
 		{
 			if (sprite.getPosition().x < -105)
 			{
-				SetPosition({ 1950, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+				SetPosition({ 1950 + (float)Utils::GetRandNum_C(200), GET_SINGLETON(Game).GetWindowHeight() / 2 + 180});
 			}
 		}
 		if (name == "cactus2")
 		{
 			if (sprite.getPosition().x < -105)
 			{
-				SetPosition({ 1950, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+				SetPosition({ 1950 + (float)Utils::GetRandNum_C(200), GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
 			}
 		}
 		if (name == "cactus3")
 		{
 			if (sprite.getPosition().x < -105)
 			{
-				SetPosition({ 1950, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+				SetPosition({ 1950 + (float)Utils::GetRandNum_C(200), GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
 			}
 		}
-
+		if (name == "cactus4")
+		{
+			if (sprite.getPosition().x < -105)
+			{
+				SetPosition({ 1950 + (float)Utils::GetRandNum_C(200), GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+			}
+		}
+		
 		SetPosition({ sprite.getPosition().x + (speed.x * dt), sprite.getPosition().y + (speed.y * dt) });
 	}
 }
