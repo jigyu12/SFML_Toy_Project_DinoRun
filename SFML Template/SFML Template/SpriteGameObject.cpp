@@ -14,6 +14,55 @@ void SpriteGameObject::Init()
 
 void SpriteGameObject::Update(float dt)
 {
+	if (name == "ground1")
+	{
+		if (sprite.getPosition().x < -2100)
+		{
+			sprite.setPosition({ 2100, GET_SINGLETON(Game).GetWindowHeight() / 2 + 200 });
+		}
+	}
+	if (name == "ground2")
+	{
+		if (sprite.getPosition().x < -2100)
+		{
+			sprite.setPosition({ 2100, GET_SINGLETON(Game).GetWindowHeight() / 2 + 200 });
+		}
+	}
+	if (name == "cloud1")
+	{
+		if (sprite.getPosition().x < -95)
+		{
+			sprite.setPosition({ 1950, (GET_SINGLETON(Game).GetWindowHeight() / 2) -250 });
+		}
+	}
+	if (name == "cloud2")
+	{
+		if (sprite.getPosition().x < -95)
+		{
+			sprite.setPosition({ 1950, (GET_SINGLETON(Game).GetWindowHeight() / 2) -350 });
+		}
+	}
+	if (name == "cactus1")
+	{
+		if (sprite.getPosition().x < -105)
+		{
+			sprite.setPosition({ 1950, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+		}
+	}
+	if (name == "cactus2")
+	{
+		if (sprite.getPosition().x < -105)
+		{
+			sprite.setPosition({ 1950, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+		}
+	}
+	if (name == "cactus3")
+	{
+		if (sprite.getPosition().x < -105)
+		{
+			sprite.setPosition({ 1950, GET_SINGLETON(Game).GetWindowHeight() / 2 + 180 });
+		}
+	}
 	sprite.setPosition({sprite.getPosition().x + (speed.x * dt), sprite.getPosition().y + (speed.y * dt) });
 }
 
