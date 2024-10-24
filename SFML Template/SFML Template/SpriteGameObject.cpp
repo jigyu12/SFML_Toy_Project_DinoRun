@@ -18,7 +18,7 @@ void SpriteGameObject::Update(float dt)
 	{
 		if (sprite.getPosition().x < -2100)
 		{
-			sprite.setPosition({ 2100, GET_SINGLETON(Game).GetWindowHeight() / 2 + 200 });
+			sprite.setPosition({ 2100 , GET_SINGLETON(Game).GetWindowHeight() / 2 + 200 });
 		}
 	}
 	if (name == "ground2")
