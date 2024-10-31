@@ -1,2 +1,2 @@
-# SFML_Toy_Project
- My SFML Toy Project
+# SFML_Toy_Project : Dino Run
+ My SFML Toy Project : Dino Run
