@@ -5,6 +5,7 @@ void InputManager::Init()
 	downKeyList.clear();
 	holdKeyList.clear();
 	upKeyList.clear();
+
 	downMouseList.clear();
 	holdMouseList.clear();
 	upMouseList.clear();
